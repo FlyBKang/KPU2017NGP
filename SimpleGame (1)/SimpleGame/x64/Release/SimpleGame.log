@@ -1,9 +1,0 @@
-﻿  Renderer.cpp
-Renderer.cpp(110): warning C4267: '=': 'size_t'에서 'GLint'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-Renderer.cpp(381): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
-  코드를 생성하고 있습니다.
-  21 of 411 functions ( 5.1%) were compiled, the rest were copied from previous compilation.
-    0 functions were new in current compilation
-    1 functions had inline decision re-evaluated but remain unchanged
-  코드를 생성했습니다.
-  SimpleGame.vcxproj -> C:\Users\LEE JUNG UK\Desktop\게임소프트웨어공학\GameSoftWareProject_LEEJUNGUK\GSE_LEEJUNGUK_1_2013180030\GSE_LEEJUNGUK_1_2013180030\SimpleGame (1)\x64\Release\SimpleGame.exe

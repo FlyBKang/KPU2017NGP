@@ -1,10 +1,17 @@
 #pragma once
 
-#define WSIZE 500
-#define HALF_WSIZE 250
-#define BOUNDERY_ZONE 540
-#define CREATE_ZONE 520
+#include "targetver.h"
 
+#include <stdio.h>
+#include <tchar.h>
+
+#include <Windows.h>
+
+#define WINDOWSIZE_WIDTH 500
+#define WINDOWSIZE_HEIGHT 500
+
+#define WINDOWHALFSIZE_WIDTH WINDOWSIZE_WIDTH * 0.5f
+#define WINDOWHALFSIZE_HEIGHT WINDOWSIZE_HEIGHT * 0.5f
 
 #define TEAM_1 0
 #define TEAM_2 1

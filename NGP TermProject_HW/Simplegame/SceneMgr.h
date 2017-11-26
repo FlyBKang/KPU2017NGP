@@ -1,5 +1,6 @@
 #pragma once
 
+#include "stdafx.h"
 #include "Object.h"
 #include "Renderer.h"
 // 길찾기 알고리즘 등 여러가지가 들어감
@@ -21,32 +22,12 @@ public:
 	SceneMgr(int x , int y);
 	~SceneMgr();
 
-	// 오브젝트 생성
-	int CreateObject(float x, float y, int objectType, int teamType);
-	void DeleteObject(int index);
-	// 오브젝트 업데이트, 겟, 
-	void UpdateAllObject(float elpasedTime);
-	void DrawAllObject();
-	// Get();
-	int GetObjectCnt() { return MAX_OBJECTS_COUNT; }
-	Object* GetActorObject(int index);
-
-	//Set()
-	 bool BoxColisionTest(Object* a, Object* b);
-	 void DoColisionTest();
 
 private:
-	Object *m_objects[MAX_OBJECTS_COUNT];
-
-	Renderer* m_Renderer;
-	int prevTime;
-	int currentTime;
-
-	float enemyCooltime = 0.f;
-
-	int objectType;
-
+	Object Obj[MAX_OBJECTS_COUNT];
+	Object Player[3];
 	GLuint m_characterTexture = 0;
 	GLuint m_bulletTexture = 0;
+	Renderer *m_Renderer = NULL;
 };
 

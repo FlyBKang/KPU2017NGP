@@ -5,8 +5,79 @@
 
 SceneMgr::SceneMgr() {}
 SceneMgr::~SceneMgr() { delete g_Renderer; }
+void SceneMgr::Collision()
+{
+	if (!p.life)
+		return;
+	if (p.IsCollision)
+		return;
+	for (int i = 0; i < Obj_num; ++i)
+	{
+		if ((obj[i].X > p.X - PLAYER_SIZE / 2) && (obj[i].X < p.X + PLAYER_SIZE / 2))
+			if ((obj[i].Y > p.Y - PLAYER_SIZE / 2) && (obj[i].Y < p.Y + PLAYER_SIZE / 2))
+			{
+				p.IsCollision = true;
+				switch (POSIT_RANDOM)
+				{
+				case 1:
+					obj[i].X = CREATE_ZONE / 2 + rand() % 50;
+					obj[i].Y = 0 + rand() % 50;
+					break;
+				case 2:
+					obj[i].X = CREATE_ZONE / 2 + rand() % 50;
+					obj[i].Y = CREATE_ZONE / 2 + rand() % 50;
+					break;
+				case 3:
+					obj[i].X = 0 + rand() % 50;
+					obj[i].Y = CREATE_ZONE / 2 + rand() % 50;
+					break;
+				case 4:
+					obj[i].X = -CREATE_ZONE / 2 + rand() % 50;
+					obj[i].Y = CREATE_ZONE / 2 + rand() % 50;
+					break;
+				case 5:
+					obj[i].X = -CREATE_ZONE / 2 + rand() % 50;
+					obj[i].Y = 0 + rand() % 50;
+					break;
+				case 6:
+					obj[i].X = -CREATE_ZONE / 2 + rand() % 50;
+					obj[i].Y = -CREATE_ZONE / 2 + rand() % 50;
+				case 7:
+					obj[i].X = 0 + rand() % 50;
+					obj[i].Y = -CREATE_ZONE / 2 + rand() % 50;
+					break;
+				case 8:
+					obj[i].X = -CREATE_ZONE / 2 + rand() % 50;
+					obj[i].Y = -CREATE_ZONE / 2 + rand() % 50;
+					break;
+				}
+			}
+	}
+}
 void SceneMgr::Update()
 {
+	DWORD currTime = timeGetTime();
+	DWORD elapsedTime = currTime - g_prevTime;
+	g_prevTime = currTime;
+	//cout << (float)g_prevTime << endl;
+
+	//충돌시 일어나는 일
+	if (p.IsCollision)
+	{
+		if (p.life == 1)
+		{
+			p.life += -1;
+			p.IsCollision = false;
+		}
+		if (g_prevTime >= collisionTime)
+		{
+			p.life += -1;
+			p.IsCollision = false;
+		}
+	}
+	else
+		collisionTime = g_prevTime + 1000;
+
 	for (int i = 0; i < Obj_num; ++i)
 	{
 		obj[i].X += obj[i].Vx;
@@ -122,11 +193,23 @@ void SceneMgr::init()
 }
 void SceneMgr::Render()
 {
-	g_Renderer->DrawTexturedRect(p.X, p.Y, 0.0f, 25.0f, 1.0f, 1.0f, 1.0f, 1.0f, Object_Texture, 0.0f);
+	if (p.life > 0)
+	{
+		if (p.IsCollision)
+		{
+			if (invincibility)
+				invincibility = 0;
+			else
+				invincibility = 1;
+			g_Renderer->DrawTexturedRect(p.X, p.Y, 0.0f, PLAYER_SIZE, 1.0f, 1.0f, 1.0f, invincibility, Object_Texture, 0.0f);
+		}
+		else
+			g_Renderer->DrawTexturedRect(p.X, p.Y, 0.0f, PLAYER_SIZE, 1.0f, 1.0f, 1.0f, 1.0f, Object_Texture, 0.0f);
+	}
 	//(float x, float y, float z, float size, float r, float g, float b, float a, GLuint texID, float level
 	for (int i = 0; i < Obj_num; ++i)
 	{
-		g_Renderer->DrawTexturedRect(obj[i].X, obj[i].Y, 0.0f, 5.0f, 1.0f, 1.0f, 1.0f, 1.0f, Object_Texture2, 0.1f);
+		g_Renderer->DrawTexturedRect(obj[i].X, obj[i].Y, 0.0f, BULLET_SIZE, 1.0f, 1.0f, 1.0f, 1.0f, Object_Texture2, 0.1f);
 	}
 }
 void SceneMgr::Update(bool up, bool down, bool left, bool right)

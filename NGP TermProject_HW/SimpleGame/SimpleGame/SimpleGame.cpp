@@ -9,12 +9,9 @@ but WITHOUT ANY WARRANTY.
 */
 
 #include "stdafx.h"
-#include <iostream>
 #include "SceneMgr.h"
 #include "Dependencies\glew.h"
 #include "Dependencies\freeglut.h"
-#include <winUser.h>
-using namespace std;
 bool init = false;
 SceneMgr *scene = new SceneMgr();
 bool check_up;
@@ -35,6 +32,7 @@ void RenderScene(void)
 {
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+
 	if (!init)
 	{
 		scene->init();
@@ -43,6 +41,7 @@ void RenderScene(void)
 	}
 	keyInput();
 	scene->Update();
+	scene->Collision();
 	scene->Render();
 	glutSwapBuffers();
 }

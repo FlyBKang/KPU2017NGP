@@ -21,3 +21,10 @@ using namespace std;
 
 #define POSIT_RANDOM rand()%8 + 1
 #define SPEED_RANDOM rand()%12 + 1
+
+//클라 통신 위한 정의(send)   --11.29 02:55 -이정욱 
+#define SERVERIP	"127.0.0.1"
+#define SERVERPORT 9000
+#define BUFSIZE 512
+
+//-----------------------------------------

@@ -1,10 +1,19 @@
 #pragma once
 
+
+#pragma comment(lib, "ws2_32")
+
+
 #include <iostream>
 #include "targetver.h"
 
 #include <stdio.h>
 #include <tchar.h>
+//클라이언트 헤더 추가
+#include <WinSock2.h>
+#include <stdlib.h>
+#include "Packets.h"
+
 using namespace std;
 
 #define TIME 33
@@ -21,3 +30,8 @@ using namespace std;
 
 #define POSIT_RANDOM rand()%8 + 1
 #define SPEED_RANDOM rand()%12 + 1
+
+//클라이언트
+#define SERVERIP	"127.0.0.1"
+#define SERVERPORT 9000
+#define BUFSIZE 512

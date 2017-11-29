@@ -3,6 +3,7 @@
 #include "Player.h"
 #include "Renderer.h"
 #include <windows.h>
+
 class SceneMgr
 {
 	bool invincibility			=0;

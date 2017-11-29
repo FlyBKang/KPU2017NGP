@@ -33,6 +33,7 @@
     <ClInclude Include="SceneMgr.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="Renderer.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
@@ -40,6 +41,15 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Packets.h">
+=======
+    <ClInclude Include="LoadPng.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Packet.h">
+>>>>>>> ce28d3487d5930c4507db13840c04ef976e6c90d
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
@@ -59,10 +69,17 @@
     <ClCompile Include="SceneMgr.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="Renderer.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="LoadPng.cpp">
+=======
+    <ClCompile Include="LoadPng.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Renderer.cpp">
+>>>>>>> ce28d3487d5930c4507db13840c04ef976e6c90d
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

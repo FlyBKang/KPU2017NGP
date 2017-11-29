@@ -211,23 +211,33 @@ void SceneMgr::Render()
 	{
 		g_Renderer->DrawTexturedRect(obj[i].X, obj[i].Y, 0.0f, BULLET_SIZE, 1.0f, 1.0f, 1.0f, 1.0f, Object_Texture2, 0.1f);
 	}
+	for (int i = 0; i < 10; ++i)
+	{
+		g_Renderer->DrawSolidRect(-WSIZE / 2 + 25 + 50 * i, (WSIZE - UI_ZONE) / 2, 0.0f, 50.0f, 0.6f, 0.6f, 0.6f, 1.0f, 0.0f);
+		g_Renderer->DrawSolidRect(-WSIZE / 2 + 25 + 50 * i, -(WSIZE - UI_ZONE) / 2, 0.0f, 50.0f, 0.6f, 0.6f, 0.6f, 1.0f, 0.0f);
+	}
 }
 void SceneMgr::Update(bool up, bool down, bool left, bool right)
 {
 	if (up)
 	{
-		p.Y += PLAYER_SPEED;
+		if ((WSIZE / 2) - UI_ZONE - PLAYER_SIZE / 2 > p.Y)
+			p.Y += PLAYER_SPEED;
 	}
 	if (down)
 	{
-		p.Y += -PLAYER_SPEED;
+		if(-(WSIZE/ 2) + UI_ZONE + PLAYER_SIZE / 2 < p.Y)
+			p.Y += -PLAYER_SPEED;
 	}
 	if (left)
 	{
-		p.X += -PLAYER_SPEED;
+		if(-WSIZE / 2 + PLAYER_SIZE/2< p.X)
+			p.X += -PLAYER_SPEED;
 	}
 	if (right)
-	{
-		p.X += PLAYER_SPEED;
+	{	
+		if (WSIZE / 2 - PLAYER_SIZE / 2> p.X)
+			p.X += PLAYER_SPEED;
 	}
+	
 }

@@ -110,7 +110,11 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>.\Dependencies\x64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+<<<<<<< HEAD
       <AdditionalDependencies>ws2_32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies);freeglut.lib;glew32.lib</AdditionalDependencies>
+=======
+      <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies);freeglut.lib;glew32.lib</AdditionalDependencies>
+>>>>>>> ce28d3487d5930c4507db13840c04ef976e6c90d
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -157,7 +161,11 @@
   <ItemGroup>
     <ClInclude Include="LoadPng.h" />
     <ClInclude Include="Object.h" />
+<<<<<<< HEAD
     <ClInclude Include="Packets.h" />
+=======
+    <ClInclude Include="Packet.h" />
+>>>>>>> ce28d3487d5930c4507db13840c04ef976e6c90d
     <ClInclude Include="Player.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="SceneMgr.h" />

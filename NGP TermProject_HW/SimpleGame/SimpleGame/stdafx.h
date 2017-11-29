@@ -9,11 +9,15 @@ using namespace std;
 
 #define TIME 33
 #define MAX 200
+
 #define WSIZE 500
 #define CREATE_ZONE 550
 #define BOUNDING_ZONE 600
+#define UI_ZONE 50
+
 #define PLAYER_SIZE 25.0f
 #define BULLET_SIZE 5.0f
+
 #define ROOT2 1.414f
 #define ROOT3 1.732f
 #define SPEED 3.0f

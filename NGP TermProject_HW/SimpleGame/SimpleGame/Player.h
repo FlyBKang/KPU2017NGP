@@ -5,7 +5,7 @@ public:
 	int num;
 	float X, Y;
 	float R, G, B;
-	int life = 3;
+	int life = 30;
 	bool IsCollision = false;
 	Player();
 	Player(int n,float x, float y, float r, float g, float b);
